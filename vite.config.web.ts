@@ -4,7 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/docx-web-converter/', // GitHub Pages repository name - update this to match your repo name
+  base: '/doccleaner/', // GitHub Pages repository name - matches your repo name
   build: {
     outDir: 'dist/web',
     emptyOutDir: true,
