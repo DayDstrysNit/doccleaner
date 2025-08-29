@@ -1,0 +1,200 @@
+{
+  "name": "docx-web-converter",
+  "version": "1.0.0",
+  "description": "A utility application that converts Microsoft Word DOCX files into clean, web-ready text",
+  "main": "dist/main/main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:electron\" \"npm run dev:react\"",
+    "dev:electron": "tsc -p tsconfig.main.json && electron dist/main/main.js",
+    "dev:react": "vite",
+    "dev:web": "vite --config vite.config.web.ts",
+    "build": "npm run build:react && npm run build:electron",
+    "build:react": "vite build",
+    "build:web": "vite build --config vite.config.web.ts",
+    "build:electron": "tsc -p tsconfig.main.json",
+    "preview:web": "vite preview --config vite.config.web.ts",
+    "package": "npm run build && electron-builder",
+    "package:mac": "npm run build && electron-builder --mac",
+    "package:win": "npm run build && electron-builder --win",
+    "package:linux": "npm run build && electron-builder --linux",
+    "package:all": "npm run build && electron-builder --mac --win --linux",
+    "dist": "npm run build && electron-builder --publish=never",
+    "dist:mac": "npm run build && electron-builder --mac --publish=never",
+    "dist:win": "npm run build && electron-builder --win --publish=never",
+    "dist:linux": "npm run build && electron-builder --linux --publish=never",
+    "build:script": "node scripts/build.js",
+    "build:script:mac": "node scripts/build.js mac",
+    "build:script:win": "node scripts/build.js win",
+    "build:script:linux": "node scripts/build.js linux",
+    "build:script:all": "node scripts/build.js all",
+    "test:package": "node scripts/test-package.js",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "verify:web": "node scripts/verify-web-build.js",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
+  },
+  "keywords": [
+    "docx",
+    "converter",
+    "electron",
+    "react",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^8.0.0",
+    "electron": "^25.0.0",
+    "electron-builder": "^24.0.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jsdom": "^22.1.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.4.0",
+    "vitest": "^0.34.0"
+  },
+  "dependencies": {
+    "mammoth": "^1.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "build": {
+    "appId": "com.docxwebconverter.app",
+    "productName": "DOCX Web Converter",
+    "copyright": "Copyright © 2025 DOCX Web Converter",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "!node_modules/**/*.{md,txt,LICENSE,CHANGELOG}",
+      "!node_modules/**/test/**/*",
+      "!node_modules/**/*.d.ts"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets/",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "assets/icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "assets/entitlements.mac.plist",
+      "entitlementsInherit": "assets/entitlements.mac.plist"
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "publisherName": "DOCX Web Converter",
+      "verifyUpdateCodeSignature": false
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Office",
+      "synopsis": "Convert DOCX files to clean web-ready text",
+      "description": "A utility application that converts Microsoft Word DOCX files into clean, web-ready text by stripping unnecessary formatting and preserving only essential content structure."
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "DOCX Web Converter"
+    },
+    "dmg": {
+      "title": "DOCX Web Converter ${version}",
+      "icon": "assets/icon.icns",
+      "background": "assets/dmg-background.png",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "your-username",
+      "repo": "docx-web-converter"
+    }
+  }
+}

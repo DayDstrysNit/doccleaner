@@ -1,0 +1,380 @@
+.preview-panel {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #ffffff;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.preview-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.preview-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab-button {
+  padding: 8px 16px;
+  border: 1px solid #d0d7de;
+  background: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #656d76;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  background: #f6f8fa;
+  border-color: #8c959f;
+}
+
+.tab-button.active {
+  background: #0969da;
+  border-color: #0969da;
+  color: #ffffff;
+}
+
+.preview-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.format-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.format-selector label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #24292f;
+}
+
+.format-selector select {
+  padding: 6px 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: 14px;
+  color: #24292f;
+  cursor: pointer;
+}
+
+.format-selector select:focus {
+  outline: none;
+  border-color: #0969da;
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.copy-button,
+.download-button {
+  padding: 8px 16px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #24292f;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover,
+.download-button:hover {
+  background: #f6f8fa;
+  border-color: #8c959f;
+}
+
+.copy-button:disabled,
+.download-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.copy-button:disabled:hover,
+.download-button:disabled:hover {
+  background: #ffffff;
+  border-color: #d0d7de;
+}
+
+.preview-content {
+  max-height: 600px;
+  overflow: auto;
+}
+
+.preview-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: #656d76;
+}
+
+.preview-empty p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.preview-single {
+  padding: 24px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.content-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #24292f;
+}
+
+.content-stats {
+  font-size: 14px;
+  color: #656d76;
+  font-weight: 500;
+}
+
+.content-display {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 16px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: auto;
+  max-height: 400px;
+  text-align: left !important;
+}
+
+.content-display pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left !important;
+}
+
+.content-display div {
+  line-height: 1.6;
+  text-align: left !important;
+}
+
+.content-display h1,
+.content-display h2,
+.content-display h3,
+.content-display h4,
+.content-display h5,
+.content-display h6 {
+  margin: 16px 0 8px 0;
+  color: #24292f;
+}
+
+.content-display h1 {
+  font-size: 24px;
+  border-bottom: 1px solid #d0d7de;
+  padding-bottom: 8px;
+}
+
+.content-display h2 {
+  font-size: 20px;
+}
+
+.content-display h3 {
+  font-size: 18px;
+}
+
+.content-display p {
+  margin: 12px 0;
+  text-align: left !important;
+}
+
+.content-display ul,
+.content-display ol {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
+.content-display li {
+  margin: 4px 0;
+}
+
+.preview-comparison {
+  display: flex;
+  height: 500px;
+}
+
+.comparison-pane {
+  flex: 1;
+  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.comparison-divider {
+  width: 1px;
+  background: #d0d7de;
+  flex-shrink: 0;
+}
+
+.comparison-pane .content-display {
+  flex: 1;
+  margin-top: 0;
+}
+
+.comparison-pane .content-display.original {
+  background: #fff8f0;
+  border-color: #f0ad4e;
+}
+
+.comparison-pane .content-display.converted {
+  background: #f0fff4;
+  border-color: #5cb85c;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .preview-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .preview-controls {
+    justify-content: space-between;
+  }
+  
+  .preview-comparison {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .comparison-divider {
+    width: auto;
+    height: 1px;
+  }
+  
+  .comparison-pane {
+    padding: 16px;
+  }
+}
+
+/* Ensure all content within preview is left-aligned */
+.content-display *,
+.content-display *::before,
+.content-display *::after {
+  text-align: left !important;
+}
+
+/* Override for specific HTML elements that might have different alignment */
+.content-display h1,
+.content-display h2,
+.content-display h3,
+.content-display h4,
+.content-display h5,
+.content-display h6,
+.content-display p,
+.content-display div,
+.content-display span,
+.content-display li,
+.content-display td,
+.content-display th {
+  text-align: left !important;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .preview-panel {
+    background: #0d1117;
+    border-color: #30363d;
+  }
+  
+  .preview-header {
+    background: #161b22;
+    border-color: #30363d;
+  }
+  
+  .tab-button {
+    background: #21262d;
+    border-color: #30363d;
+    color: #f0f6fc;
+  }
+  
+  .tab-button:hover {
+    background: #30363d;
+    border-color: #8b949e;
+  }
+  
+  .tab-button.active {
+    background: #1f6feb;
+    border-color: #1f6feb;
+  }
+  
+  .format-selector label {
+    color: #f0f6fc;
+  }
+  
+  .format-selector select {
+    background: #21262d;
+    border-color: #30363d;
+    color: #f0f6fc;
+  }
+  
+  .copy-button,
+  .download-button {
+    background: #21262d;
+    border-color: #30363d;
+    color: #f0f6fc;
+  }
+  
+  .copy-button:hover,
+  .download-button:hover {
+    background: #30363d;
+    border-color: #8b949e;
+  }
+  
+  .content-header {
+    border-color: #30363d;
+  }
+  
+  .content-header h3 {
+    color: #f0f6fc;
+  }
+  
+  .content-stats {
+    color: #8b949e;
+  }
+  
+  .content-display {
+    background: #161b22;
+    border-color: #30363d;
+    color: #f0f6fc;
+  }
+  
+  .comparison-divider {
+    background: #30363d;
+  }
+}

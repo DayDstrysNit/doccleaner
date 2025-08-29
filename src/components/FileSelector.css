@@ -1,0 +1,147 @@
+.file-selector {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.file-selector-dropzone {
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-selector-dropzone:hover:not(.disabled) {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.file-selector-dropzone:focus:not(.disabled) {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.file-selector-dropzone.drag-over {
+  border-color: #10b981;
+  background-color: #ecfdf5;
+  border-style: solid;
+  transform: scale(1.02);
+}
+
+.file-selector-dropzone.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+}
+
+.file-selector-dropzone.processing {
+  cursor: wait;
+}
+
+.file-selector-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.file-selector-icon {
+  color: #6b7280;
+  transition: color 0.2s ease-in-out;
+}
+
+.file-selector-dropzone:hover:not(.disabled) .file-selector-icon {
+  color: #3b82f6;
+}
+
+.file-selector-dropzone.drag-over .file-selector-icon {
+  color: #10b981;
+}
+
+.file-selector-text h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.file-selector-text p {
+  margin: 0 0 8px 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.browse-link {
+  color: #3b82f6;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.file-selector-info {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.file-selector-info p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin: 4px 0;
+}
+
+.processing-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.processing-indicator p {
+  color: #3b82f6;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .file-selector-dropzone {
+    padding: 30px 15px;
+    min-height: 160px;
+  }
+  
+  .file-selector-text h3 {
+    font-size: 1.1rem;
+  }
+  
+  .file-selector-text p {
+    font-size: 0.9rem;
+  }
+  
+  .file-selector-info p {
+    font-size: 0.8rem;
+  }
+}
